@@ -3,11 +3,15 @@
 import { useState } from "react";
 
 export default function Login() {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
     const handleSubmit = async (e) => {
     }
 
     return (
         <>
+        <p className="text-red-600">* Dados incorretos!</p>
         <form onSubmit={handleSubmit}>
             <label htmlFor="username">Nome de Usuário:</label>
             <input
