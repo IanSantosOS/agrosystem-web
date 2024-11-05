@@ -21,7 +21,8 @@ export default function Login() {
     }
 
     return (
-        <>
+        <div className="box login">
+        <h1>Log In</h1>
         <p id="erro" className="text-red-600"></p>
         <form onSubmit={handleSubmit}>
             <label htmlFor="username">Nome de Usuário:</label>
@@ -31,7 +32,6 @@ export default function Login() {
                 name="username"
                 placeholder="Usuário"
             />
-            <br/>
             <label htmlFor="password">Senha:</label>
             <input
                 type="password"
@@ -39,10 +39,9 @@ export default function Login() {
                 name="password"
                 placeholder="************"
             />
-            <br/>
-            <button type="submit" className="underline">Enviar</button>
+            <button type="submit">Enviar</button>
+            <Link href="/register" className="underline text-center max-w-full w-full block mt-3">Cadastrar</Link>
         </form>
-        <Link href="/register" className="underline">Cadastrar</Link>
-        </>
+        </div>
     )
 }

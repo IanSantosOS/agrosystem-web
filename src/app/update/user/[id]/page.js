@@ -25,7 +25,8 @@ export default function Update({ params }) {
     }
 
     return (
-        <>
+        <div className="box update">
+        <h1>Atualizar</h1>
         <p id="erro" className="text-red-600"></p>
         <form onSubmit={handleSubmit}>
         <label htmlFor="name">Novo Nome:</label>
@@ -35,7 +36,6 @@ export default function Update({ params }) {
                 name="namePublic"
                 placeholder="Fulano"
             />
-            <br/>
             <label htmlFor="username">Novo Nome de Usuário:</label>
             <input
                 type="text"
@@ -43,7 +43,6 @@ export default function Update({ params }) {
                 name="username"
                 placeholder="fulano123"
             />
-            <br/>
             <label htmlFor="email">Novo E-mail:</label>
             <input
                 type="email"
@@ -51,10 +50,9 @@ export default function Update({ params }) {
                 name="email"
                 placeholder="fulano.jacinto@gmail.com"
             />
-            <br/>
-            <button type="submit" className="underline">Enviar</button>
+            <button type="submit">Enviar</button>
         </form>
-        <Link href="/home" className="underline">Voltar</Link>
-        </>
+        <Link href="/home" className="underline text-center max-w-full w-full block mt-3">Voltar</Link>
+        </div>
     )
 }

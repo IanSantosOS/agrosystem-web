@@ -24,27 +24,33 @@ export default function Register() {
     }
 
     return (
-        <>
+        <div className="box register">
+        <h1>Cadastro</h1>
         <p id="erro" className="text-red-600"></p>
         <form onSubmit={handleSubmit}>
-            <label htmlFor="name">Nome:</label>
-            <input
-                type="text"
-                id="namePublic"
-                name="namePublic"
-                placeholder="Fulano"
-                required
-            />
-            <br/>
-            <label htmlFor="username">Nome de Usuário:</label>
-            <input
-                type="text"
-                id="username"
-                name="username"
-                placeholder="fulano123"
-                required
-            />
-            <br/>
+            <div className="grid grid-cols-2 gap-4">
+                <div>
+                    <label htmlFor="name">Nome:</label>
+                    <input
+                        type="text"
+                        id="namePublic"
+                        name="namePublic"
+                        placeholder="Fulano"
+                        required
+                    />
+                </div>
+                <div>
+                    <label htmlFor="username">Nome de Usuário:</label>
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="fulano123"
+                        required
+                    />
+                </div>
+            </div>
+
             <label htmlFor="email">E-mail:</label>
             <input
                 type="email"
@@ -53,28 +59,32 @@ export default function Register() {
                 placeholder="fulano.jacinto@gmail.com"
                 required
             />
-            <br/>
-            <label htmlFor="password">Senha:</label>
-            <input
-                type="password"
-                id="password"
-                name="password"
-                placeholder="************"
-                required
-            />
-            <br/>
-            <label htmlFor="passwordVerify">Confirmar Senha:</label>
-            <input
-                type="password"
-                id="passwordVerify"
-                name="passwordVerify"
-                placeholder="************"
-                required
-            />
-            <br/>
-            <button type="submit" className="underline">Enviar</button>
+
+            <div className="grid grid-cols-2 gap-4">
+                <div>
+                    <label htmlFor="password">Senha:</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="************"
+                        required
+                    />
+                </div>
+                <div>
+                    <label htmlFor="passwordVerify">Confirmar Senha:</label>
+                    <input
+                        type="password"
+                        id="passwordVerify"
+                        name="passwordVerify"
+                        placeholder="************"
+                        required
+                    />
+                </div>
+            </div>
+            <button type="submit">Enviar</button>
         </form>
-        <Link href="/" className="underline">Voltar</Link>
-        </>
+        <Link href="/" className="underline text-center max-w-full w-full block mt-3">Log In</Link>
+        </div>
     )
 }
