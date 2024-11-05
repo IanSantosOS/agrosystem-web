@@ -22,17 +22,18 @@ export default function Login() {
 
     return (
         <div className="box login">
-        <h1>Log In</h1>
+        <h1>Área de login</h1>
+        <br></br>
         <p id="erro" className="text-red-600"></p>
         <form onSubmit={handleSubmit}>
-            <label htmlFor="username">Nome de Usuário:</label>
+          <strong><label htmlFor="username" id="style_campo">Nome de Usuário:</label></strong>  
             <input
                 type="text"
                 id="username"
                 name="username"
                 placeholder="Usuário"
             />
-            <label htmlFor="password">Senha:</label>
+            <strong><label htmlFor="password" id="style_campo">Senha:</label></strong>   
             <input
                 type="password"
                 id="password"
