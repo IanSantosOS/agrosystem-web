@@ -28,7 +28,7 @@ export default function Home() {
 
     return (
         <>
-        <h1 className="font-bold text-3xl mb-3">Home Page</h1>
+        <h1 className="font-bold text-3xl mb-3">Usuários</h1>
         <Link href="/" className="underline">Logout</Link>
         <div className='mt-3 gap-5 flex'>
             <Link href="/communities" className="underline">Comunidades</Link>

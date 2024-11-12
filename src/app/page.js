@@ -26,14 +26,14 @@ export default function Login() {
         <br></br>
         <p id="erro" className="text-red-600"></p>
         <form onSubmit={handleSubmit}>
-          <strong><label htmlFor="username" id="style_campo">Nome de Usuário:</label></strong>  
+            <label htmlFor="username">Nome de Usuário:</label>
             <input
                 type="text"
                 id="username"
                 name="username"
                 placeholder="Usuário"
             />
-            <strong><label htmlFor="password" id="style_campo">Senha:</label></strong>   
+            <label htmlFor="password">Senha:</label>
             <input
                 type="password"
                 id="password"

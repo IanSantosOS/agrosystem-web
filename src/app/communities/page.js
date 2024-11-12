@@ -28,37 +28,42 @@ export default function Communities() {
 
     return (
         <>
-        <h1 className="font-bold text-3xl mb-3">Home Page</h1>
+        <h1 className="font-bold text-3xl mb-3">Comunidades</h1>
         <Link href="/" className="underline">Logout</Link>
-        <div className='mt-3 gap-5 flex'>
-            <Link href="/home" className="underline">Usuários</Link>
-            <Link href="/products" className="underline">Produtos</Link>
+        <div className='max-w-fit'>
+            <div className='mt-3 flex justify-between'>
+                <div className='gap-3 flex'>
+                    <Link href="/home" className="underline">Usuários</Link>
+                    <Link href="/products" className="underline">Produtos</Link>
+                </div>
+                <Link href="/create/community" className="underline">Criar Comunidade</Link>
+            </div>
+            <table className='mt-3'>
+                <thead>
+                    <tr>
+                        <th className="px-2">ID</th>
+                        <th className="px-2">Título</th>
+                        <th className="px-2">Descrição</th>
+                        <th className="px-2">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {listOfPosts.map((value, key) => {
+                        return (
+                            <tr key={key}>
+                                <td className="px-2">{value.id}</td>
+                                <td className="px-2">{value.title}</td>
+                                <td className="px-2">{value.description}</td>
+                                <td className="px-2">
+                                    <button onClick={() => handleUpdateCommunity(value.id)} className="me-2 underline">Atualizar</button>
+                                    <button onClick={() => handleDeleteCommunity(value.id)} className="underline">Remover</button>
+                                </td>
+                            </tr>
+                        );
+                    })}
+                </tbody>
+            </table>
         </div>
-        <table className='mt-3'>
-            <thead>
-                <tr>
-                    <th className="px-2">ID</th>
-                    <th className="px-2">Título</th>
-                    <th className="px-2">Descrição</th>
-                    <th className="px-2">Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                {listOfPosts.map((value, key) => {
-                    return (
-                        <tr key={key}>
-                            <td className="px-2">{value.id}</td>
-                            <td className="px-2">{value.title}</td>
-                            <td className="px-2">{value.description}</td>
-                            <td className="px-2">
-                                <button onClick={() => handleUpdateCommunity(value.id)} className="me-2 underline">Atualizar</button>
-                                <button onClick={() => handleDeleteCommunity(value.id)} className="underline">Remover</button>
-                            </td>
-                        </tr>
-                    );
-                })}
-            </tbody>
-        </table>
         </>
     );
 }

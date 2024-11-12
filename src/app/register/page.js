@@ -36,6 +36,7 @@ export default function Register() {
                         id="namePublic"
                         name="namePublic"
                         placeholder="Fulano"
+                        title="Digite seu Nome"
                         required
                     />
                 </div>
@@ -46,6 +47,7 @@ export default function Register() {
                         id="username"
                         name="username"
                         placeholder="fulano123"
+                        title="Digite seu Nome de usuário"
                         required
                     />
                 </div>
@@ -57,6 +59,7 @@ export default function Register() {
                 id="email"
                 name="email"
                 placeholder="fulano.jacinto@gmail.com"
+                title="Digite seu E-mail"
                 required
             />
 
@@ -68,6 +71,7 @@ export default function Register() {
                         id="password"
                         name="password"
                         placeholder="************"
+                        title="Digite a senha que você vai utilizar"
                         required
                     />
                 </div>
@@ -78,6 +82,7 @@ export default function Register() {
                         id="passwordVerify"
                         name="passwordVerify"
                         placeholder="************"
+                        title="Digite a confirmação da senha"
                         required
                     />
                 </div>
