@@ -49,7 +49,7 @@ body:has(.box) {
 }
 
 /* Container principal do login */
-.box.login {
+.box {
   width: 100%;
   max-width: 400px;
   background-color: #fff;
@@ -59,8 +59,12 @@ body:has(.box) {
   text-align: center;
 }
 
+.box.register {
+  max-width: 500px !important;
+}
+
 /* Título */
-.box.login h1 {
+.box h1 {
   font-size: 1.8rem;
   color: #333;
   margin-bottom: 1rem;
@@ -81,6 +85,8 @@ label {
 
 /* Campos de entrada */
 input[type="text"],
+input[type="email"],
+input[type="number"],
 input[type="password"] {
   width: 100%;
   padding: 0.8rem;
@@ -91,6 +97,8 @@ input[type="password"] {
 }
 
 input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
 input[type="password"]:focus {
   border-color: #55af43;
 }
@@ -131,8 +139,8 @@ a.underline:hover {
 
 
 #style_campo{
-    display: flex;
-    justify-content: left;
+  display: flex;
+  justify-content: left;
 }
 
 

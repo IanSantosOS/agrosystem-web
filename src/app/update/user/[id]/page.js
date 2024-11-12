@@ -3,7 +3,7 @@
 import api_axios from "@/utils/axiosClient";
 import Link from "next/link";
 
-export default function Update({ params }) {
+export default function UpdateUser({ params }) {
     const { id } = params;
 
     const handleSubmit = async (e) => {
@@ -25,16 +25,17 @@ export default function Update({ params }) {
     }
 
     return (
-        <div className="box update">
-        <h1>Atualizar</h1>
+        <div className="box">
+        <h1>Atualizar Usuário</h1>
         <p id="erro" className="text-red-600"></p>
         <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Novo Nome:</label>
+            <label htmlFor="namePublic">Novo Nome:</label>
             <input
                 type="text"
                 id="namePublic"
                 name="namePublic"
                 placeholder="Fulano"
+                title="Escreva um novo nome."
             />
             <label htmlFor="username">Novo Nome de Usuário:</label>
             <input
@@ -42,13 +43,15 @@ export default function Update({ params }) {
                 id="username"
                 name="username"
                 placeholder="fulano123"
+                title="Escreva um novo nome de usuário, lembre-se de que ele deve ser único."
             />
             <label htmlFor="email">Novo E-mail:</label>
             <input
                 type="email"
                 id="email"
                 name="email"
-                placeholder="fulano.jacinto@gmail.com"
+                placeholder="fulano@gmail.com"
+                title="Escreva um novo e-mail."
             />
             <button type="submit">Enviar</button>
         </form>

@@ -21,7 +21,7 @@ export default function Login() {
     }
 
     return (
-        <div className="box login">
+        <div className="box">
         <h1>Área de login</h1>
         <br></br>
         <p id="erro" className="text-red-600"></p>

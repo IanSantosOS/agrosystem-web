@@ -1,24 +1,24 @@
 "use client";
 
 import api_axios from '@/utils/axiosClient';
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
-export default function Home() {
+export default function Communities() {
     const [listOfPosts, setListOfPosts] = useState([]);
 
     const handleListOfPosts = () => {
-        api_axios.get('/api/v1/users').then((res) => {
+        api_axios.get('/api/v1/communities').then((res) => {
             setListOfPosts(res.data);
         });
     }
 
-    const handleUpdateUser = (id) => {
-        window.location.assign(`/update/user/${id}`);
+    const handleUpdateCommunity = (id) => {
+        window.location.assign(`/update/community/${id}`);
     };
 
-    const handleDeleteUser = (id) => {
-        api_axios.delete(`/api/v1/delete/user/${id}`)
+    const handleDeleteCommunity = (id) => {
+        api_axios.delete(`/api/v1/delete/community/${id}`)
         .then(() => handleListOfPosts());
     }
 
@@ -31,16 +31,15 @@ export default function Home() {
         <h1 className="font-bold text-3xl mb-3">Home Page</h1>
         <Link href="/" className="underline">Logout</Link>
         <div className='mt-3 gap-5 flex'>
-            <Link href="/communities" className="underline">Comunidades</Link>
+            <Link href="/home" className="underline">Usuários</Link>
             <Link href="/products" className="underline">Produtos</Link>
         </div>
         <table className='mt-3'>
             <thead>
                 <tr>
                     <th className="px-2">ID</th>
-                    <th className="px-2">Nome</th>
-                    <th className="px-2">Usuário</th>
-                    <th className="px-2">Email</th>
+                    <th className="px-2">Título</th>
+                    <th className="px-2">Descrição</th>
                     <th className="px-2">Ações</th>
                 </tr>
             </thead>
@@ -49,12 +48,11 @@ export default function Home() {
                     return (
                         <tr key={key}>
                             <td className="px-2">{value.id}</td>
-                            <td className="px-2">{value.name}</td>
-                            <td className="px-2">{value.username}</td>
-                            <td className="px-2">{value.email}</td>
+                            <td className="px-2">{value.title}</td>
+                            <td className="px-2">{value.description}</td>
                             <td className="px-2">
-                                <button onClick={() => handleUpdateUser(value.id)} className="me-2 underline">Atualizar</button>
-                                <button onClick={() => handleDeleteUser(value.id)} className="underline">Remover</button>
+                                <button onClick={() => handleUpdateCommunity(value.id)} className="me-2 underline">Atualizar</button>
+                                <button onClick={() => handleDeleteCommunity(value.id)} className="underline">Remover</button>
                             </td>
                         </tr>
                     );

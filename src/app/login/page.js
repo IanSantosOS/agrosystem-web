@@ -21,7 +21,7 @@ export default function Login() {
     }
 
     return (
-        <div className="box login">
+        <div className="box">
         <h1>Log In</h1>
         <p id="erro" className="text-red-600"></p>
         <form onSubmit={handleSubmit}>

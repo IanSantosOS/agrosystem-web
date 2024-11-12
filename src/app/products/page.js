@@ -1,24 +1,24 @@
 "use client";
 
 import api_axios from '@/utils/axiosClient';
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
-export default function Home() {
+export default function Products() {
     const [listOfPosts, setListOfPosts] = useState([]);
 
     const handleListOfPosts = () => {
-        api_axios.get('/api/v1/users').then((res) => {
+        api_axios.get('/api/v1/products').then((res) => {
             setListOfPosts(res.data);
         });
     }
 
-    const handleUpdateUser = (id) => {
-        window.location.assign(`/update/user/${id}`);
+    const handleUpdateProduct = (id) => {
+        window.location.assign(`/update/product/${id}`);
     };
 
-    const handleDeleteUser = (id) => {
-        api_axios.delete(`/api/v1/delete/user/${id}`)
+    const handleDeleteProduct = (id) => {
+        api_axios.delete(`/api/v1/delete/product/${id}`)
         .then(() => handleListOfPosts());
     }
 
@@ -31,17 +31,16 @@ export default function Home() {
         <h1 className="font-bold text-3xl mb-3">Home Page</h1>
         <Link href="/" className="underline">Logout</Link>
         <div className='mt-3 gap-5 flex'>
+            <Link href="/home" className="underline">Usuários</Link>
             <Link href="/communities" className="underline">Comunidades</Link>
-            <Link href="/products" className="underline">Produtos</Link>
         </div>
         <table className='mt-3'>
             <thead>
                 <tr>
                     <th className="px-2">ID</th>
                     <th className="px-2">Nome</th>
-                    <th className="px-2">Usuário</th>
-                    <th className="px-2">Email</th>
-                    <th className="px-2">Ações</th>
+                    <th className="px-2">Preço</th>
+                    <th className="px-2">Quantidade</th>
                 </tr>
             </thead>
             <tbody>
@@ -50,11 +49,11 @@ export default function Home() {
                         <tr key={key}>
                             <td className="px-2">{value.id}</td>
                             <td className="px-2">{value.name}</td>
-                            <td className="px-2">{value.username}</td>
-                            <td className="px-2">{value.email}</td>
+                            <td className="px-2">{value.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
+                            <td className="px-2">{value.qnt}</td>
                             <td className="px-2">
-                                <button onClick={() => handleUpdateUser(value.id)} className="me-2 underline">Atualizar</button>
-                                <button onClick={() => handleDeleteUser(value.id)} className="underline">Remover</button>
+                                <button onClick={() => handleUpdateProduct(value.id)} className="me-2 underline">Atualizar</button>
+                                <button onClick={() => handleDeleteProduct(value.id)} className="underline">Remover</button>
                             </td>
                         </tr>
                     );
