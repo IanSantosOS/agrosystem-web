@@ -14,7 +14,7 @@ export default function UpdateProduct({ params }) {
         if (price.value) obj.price = parseFloat(price.value);
         if (qnt.value) obj.qnt = parseInt(qnt.value);
 
-        await api_axios.put(`/api/v1/update/product/${id}`, obj)
+        await api_axios.patch(`/v1/products/${id}`, obj)
         .then(({ data }) => {
             if (data.data) {
                 window.location.replace('/products');

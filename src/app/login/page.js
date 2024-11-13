@@ -7,7 +7,7 @@ export default function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        await api_axios.post('/api/v1/login', {
+        await api_axios.post('/v1/users/login/', {
             username: username.value,
             password: password.value
         })

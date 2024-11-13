@@ -13,7 +13,7 @@ export default function UpdateCommunity({ params }) {
         if (title.value) obj.title = title.value;
         if (description.value) obj.description = description.value;
 
-        await api_axios.put(`/api/v1/update/community/${id}`, obj)
+        await api_axios.patch(`/v1/communities/${id}`, obj)
         .then(({ data }) => {
             if (data.data) {
                 window.location.replace('/communities');

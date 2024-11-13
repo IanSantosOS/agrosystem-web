@@ -8,7 +8,7 @@ export default function Communities() {
     const [listOfPosts, setListOfPosts] = useState([]);
 
     const handleListOfPosts = () => {
-        api_axios.get('/api/v1/communities').then((res) => {
+        api_axios.get('/v1/communities/').then((res) => {
             setListOfPosts(res.data);
         });
     }
@@ -18,7 +18,7 @@ export default function Communities() {
     };
 
     const handleDeleteCommunity = (id) => {
-        api_axios.delete(`/api/v1/delete/community/${id}`)
+        api_axios.delete(`/v1/communities/${id}`)
         .then(() => handleListOfPosts());
     }
 

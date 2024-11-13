@@ -14,7 +14,7 @@ export default function UpdateUser({ params }) {
         if (username.value) obj.username = username.value;
         if (email.value) obj.email = email.value;
 
-        await api_axios.put(`/api/v1/update/user/${id}`, obj)
+        await api_axios.patch(`/v1/users/${id}`, obj)
         .then(({ data }) => {
             if (data.data) {
                 window.location.replace('/home');

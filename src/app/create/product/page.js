@@ -7,7 +7,7 @@ export default function Register() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        await api_axios.post('/api/v1/create/product', {
+        await api_axios.post('/v1/products/', {
             name: namePublic.value,
             price: price.value,
             qnt: qnt.value
