@@ -7,12 +7,12 @@ export default function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        await api_axios.post('/v1/users/login/', {
+        await api_axios.post('/api/v1/login', {
             username: username.value,
             password: password.value
         })
         .then(({ data }) => {
-            if (data.data) {
+            if (data.token) {
                 window.location.replace('/home');
             } else {
                 document.querySelector("#erro").innerText = "* Dados incorretos!";

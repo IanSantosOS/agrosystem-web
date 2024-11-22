@@ -8,7 +8,7 @@ export default function Products() {
     const [listOfPosts, setListOfPosts] = useState([]);
 
     const handleListOfPosts = () => {
-        api_axios.get('/v1/products/').then((res) => {
+        api_axios.get('/api/v1/products/').then((res) => {
             setListOfPosts(res.data);
         });
     }
@@ -18,7 +18,7 @@ export default function Products() {
     };
 
     const handleDeleteProduct = (id) => {
-        api_axios.delete(`/v1/products/${id}`)
+        api_axios.delete(`/api/v1/products/${id}`)
         .then(() => handleListOfPosts());
     }
 

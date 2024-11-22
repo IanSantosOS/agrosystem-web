@@ -8,9 +8,9 @@ A inovação que conecta o agro ao futuro.
 
 ```@app``` -> Rotas das páginas;
 
-```@assets``` -> Diretório que contém arquivos estáticos (imagens, vídeos, áudios, fonts);
-
 ```@components``` -> Diretório com os componentes react;
+
+```@public``` -> Diretório que contém arquivos estáticos (imagens, vídeos, áudios, fonts);
 
 ```@styles``` -> Diretório para os arquivos de estilos globais;
 

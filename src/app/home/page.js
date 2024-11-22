@@ -8,7 +8,7 @@ export default function Home() {
     const [listOfPosts, setListOfPosts] = useState([]);
 
     const handleListOfPosts = () => {
-        api_axios.get('/v1/users/').then((res) => {
+        api_axios.get('/api/v1/users/').then((res) => {
             setListOfPosts(res.data);
         });
     }
@@ -18,7 +18,7 @@ export default function Home() {
     };
 
     const handleDeleteUser = (id) => {
-        api_axios.delete(`/v1/users/${id}`)
+        api_axios.delete(`/api/v1/users/${id}`)
         .then(() => handleListOfPosts());
     }
 
