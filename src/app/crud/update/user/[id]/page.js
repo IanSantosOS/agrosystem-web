@@ -17,7 +17,7 @@ export default function UpdateUser({ params }) {
         await api_axios.patch(`/api/v1/users/${id}`, obj)
         .then(({ data }) => {
             if (data.data) {
-                window.location.replace('/home');
+                window.location.replace('/crud/users');
             } else {
                 document.querySelector("#erro").innerText = "* Dados incorretos!";
             }
@@ -55,7 +55,7 @@ export default function UpdateUser({ params }) {
             />
             <button type="submit">Enviar</button>
         </form>
-        <Link href="/home" className="underline text-center max-w-full w-full block mt-3">Voltar</Link>
+        <Link href="/crud/users" className="underline text-center max-w-full w-full block mt-3">Voltar</Link>
         </div>
     )
 }

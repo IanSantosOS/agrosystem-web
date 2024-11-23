@@ -14,7 +14,7 @@ export default function Products() {
     }
 
     const handleUpdateProduct = (id) => {
-        window.location.assign(`/update/product/${id}`);
+        window.location.assign(`/crud/update/product/${id}`);
     };
 
     const handleDeleteProduct = (id) => {
@@ -29,14 +29,14 @@ export default function Products() {
     return (
         <>
         <h1 className="font-bold text-3xl mb-3">Produtos</h1>
-        <Link href="/" className="underline">Logout</Link>
+        <Link href="/crud/" className="underline">Logout</Link>
         <div className='max-w-fit'>
             <div className='mt-3 flex justify-between'>
                 <div className='gap-3 flex'>
-                    <Link href="/home" className="underline">Usuários</Link>
-                    <Link href="/communities" className="underline">Comunidades</Link>
+                    <Link href="/crud/users" className="underline">Usuários</Link>
+                    <Link href="/crud/communities" className="underline">Comunidades</Link>
                 </div>
-                <Link href="/create/product" className="underline">Criar Produto</Link>
+                <Link href="/crud/create/product" className="underline">Criar Produto</Link>
             </div>
             <table className='mt-3'>
                 <thead>

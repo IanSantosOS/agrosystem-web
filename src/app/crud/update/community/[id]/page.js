@@ -16,7 +16,7 @@ export default function UpdateCommunity({ params }) {
         await api_axios.patch(`/api/v1/communities/${id}`, obj)
         .then(({ data }) => {
             if (data.data) {
-                window.location.replace('/communities');
+                window.location.replace('/crud/communities');
             } else {
                 document.querySelector("#erro").innerText = "* Dados incorretos!";
             }
@@ -46,7 +46,7 @@ export default function UpdateCommunity({ params }) {
             />
             <button type="submit">Enviar</button>
         </form>
-        <Link href="/communities" className="underline text-center max-w-full w-full block mt-3">Voltar</Link>
+        <Link href="/crud/communities" className="underline text-center max-w-full w-full block mt-3">Voltar</Link>
         </div>
     )
 }

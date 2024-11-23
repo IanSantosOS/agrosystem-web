@@ -13,7 +13,7 @@ export default function Register() {
         })
         .then(({ data }) => {
             if (data.data) {
-                window.location.replace('/communities');
+                window.location.replace('/crud/communities');
             } else {
                 document.querySelector("#erro").innerText = "* Dados inválidos!";
             }
@@ -46,7 +46,7 @@ export default function Register() {
 
             <button type="submit">Enviar</button>
         </form>
-        <Link href="/communities" className="underline text-center max-w-full w-full block mt-3">Voltar</Link>
+        <Link href="/crud/communities" className="underline text-center max-w-full w-full block mt-3">Voltar</Link>
         </div>
     )
 }

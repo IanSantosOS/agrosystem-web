@@ -14,7 +14,7 @@ export default function Communities() {
     }
 
     const handleUpdateCommunity = (id) => {
-        window.location.assign(`/update/community/${id}`);
+        window.location.assign(`/crud/update/community/${id}`);
     };
 
     const handleDeleteCommunity = (id) => {
@@ -29,14 +29,14 @@ export default function Communities() {
     return (
         <>
         <h1 className="font-bold text-3xl mb-3">Comunidades</h1>
-        <Link href="/" className="underline">Logout</Link>
+        <Link href="/crud/" className="underline">Logout</Link>
         <div className='max-w-fit'>
             <div className='mt-3 flex justify-between'>
                 <div className='gap-3 flex'>
-                    <Link href="/home" className="underline">Usuários</Link>
-                    <Link href="/products" className="underline">Produtos</Link>
+                    <Link href="/crud/users" className="underline">Usuários</Link>
+                    <Link href="/crud/products" className="underline">Produtos</Link>
                 </div>
-                <Link href="/create/community" className="underline">Criar Comunidade</Link>
+                <Link href="/crud/create/community" className="underline">Criar Comunidade</Link>
             </div>
             <table className='mt-3'>
                 <thead>

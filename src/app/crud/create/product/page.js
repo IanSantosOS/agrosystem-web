@@ -3,23 +3,20 @@
 import api_axios from "@/utils/axiosClient";
 import Link from "next/link";
 
-export default function UpdateProduct({ params }) {
-    const { id } = params;
-
+export default function Register() {
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
-        const obj = {};
-        if (namePublic.value) obj.name = namePublic.value;
-        if (price.value) obj.price = parseFloat(price.value);
-        if (qnt.value) obj.qnt = parseInt(qnt.value);
 
-        await api_axios.patch(`/api/v1/products/${id}`, obj)
+        await api_axios.post('/api/v1/products/', {
+            name: namePublic.value,
+            price: price.value,
+            qnt: qnt.value
+        })
         .then(({ data }) => {
             if (data.data) {
-                window.location.replace('/products');
+                window.location.replace('/crud/products');
             } else {
-                document.querySelector("#erro").innerText = "* Dados incorretos!";
+                document.querySelector("#erro").innerText = "* Dados inválidos!";
             }
         });
     }
@@ -30,7 +27,7 @@ export default function UpdateProduct({ params }) {
 
     return (
         <div className="box register">
-        <h1>Atualizar Produto</h1>
+        <h1>Criar Produto</h1>
         <p id="erro" className="text-red-600"></p>
         <form onSubmit={handleSubmit}>
             <label htmlFor="name">Nome:</label>
@@ -40,6 +37,7 @@ export default function UpdateProduct({ params }) {
                 name="namePublic"
                 placeholder="Produto"
                 title="Coloque o nome do seu produto."
+                required
             />
             <div className="grid grid-cols-2 gap-4">
                 <div>
@@ -52,6 +50,7 @@ export default function UpdateProduct({ params }) {
                         placeholder="159,99"
                         step="0.01"
                         title="Coloque o preço do seu Produto."
+                        required
                     />
                 </div>
                 <div>
@@ -64,13 +63,14 @@ export default function UpdateProduct({ params }) {
                         title="Digite a quantidade. Apenas números inteiros."
                         onInput={justAllowInteger}
                         placeholder="450"
+                        required
                     />
                 </div>
             </div>
 
             <button type="submit">Enviar</button>
         </form>
-        <Link href="/products" className="underline text-center max-w-full w-full block mt-3">Voltar</Link>
+        <Link href="/crud/products" className="underline text-center max-w-full w-full block mt-3">Voltar</Link>
         </div>
     )
 }
