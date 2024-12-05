@@ -1,19 +1,34 @@
 "use client";
 
-import api_axios from "@/utils/axiosClient";
+import api_axios from "@utils/axiosClient";
+import { applyAuthToken } from "@utils/handleAuthToken";
 import Link from "next/link";
+import { useEffect } from "react";
 
 export default function Login() {
+    useEffect(() => {
+        api_axios.post('/api/v1/', {
+            headers: {
+                Authorization: localStorage.getItem('authToken')
+            }
+        }).catch(({ data }) => {
+            if (data?.msg === "Token válido!") {
+                window.location.assign('/home');
+            }
+        });
+    }, []);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        
         await api_axios.post('/api/v1/login', {
             username: username.value,
             password: password.value
         })
         .then(({ data }) => {
             if (data.token) {
-                window.location.replace('/home');
+                applyAuthToken(data.token);
+                window.location.assign('/home');
             } else {
                 document.querySelector("#erro").innerText = "* Dados incorretos!";
             }

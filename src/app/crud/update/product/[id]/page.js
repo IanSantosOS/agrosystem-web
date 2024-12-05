@@ -1,6 +1,6 @@
 "use client";
 
-import api_axios from "@/utils/axiosClient";
+import api_axios from "@utils/axiosClient";
 import Link from "next/link";
 
 export default function UpdateProduct({ params }) {

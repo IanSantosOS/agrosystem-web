@@ -1,6 +1,6 @@
 "use client";
 
-import api_axios from '@/utils/axiosClient';
+import api_axios from '@utils/axiosClient';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
